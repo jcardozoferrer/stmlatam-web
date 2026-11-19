@@ -9,6 +9,7 @@
 window.JCF_MEDICION = {
   ga4: 'G-R0FV11J4P8',
   metaPixel: '28419957547677879',
+  linkedin: '11393553', /* Insight Tag de LinkedIn (cuenta publicitaria STM 513479823) */
   googleAds: ''
 };
 
@@ -35,6 +36,11 @@ window.JCF_MEDICION = {
     if (C.metaPixel) {
       !function (f, b, e, v, n, t, s) { if (f.fbq) return; n = f.fbq = function () { n.callMethod ? n.callMethod.apply(n, arguments) : n.queue.push(arguments); }; if (!f._fbq) f._fbq = n; n.push = n; n.loaded = !0; n.version = '2.0'; n.queue = []; t = b.createElement(e); t.async = !0; t.src = v; s = b.getElementsByTagName(e)[0]; s.parentNode.insertBefore(t, s); }(window, document, 'script', 'https://connect.facebook.net/en_US/fbevents.js');
       fbq('init', C.metaPixel); fbq('track', 'PageView');
+    }
+    if (C.linkedin) {
+      window._linkedin_partner_id = C.linkedin; window._linkedin_data_partner_ids = window._linkedin_data_partner_ids || []; window._linkedin_data_partner_ids.push(C.linkedin);
+      if (!window.lintrk) { window.lintrk = function (a, b) { window.lintrk.q.push([a, b]); }; window.lintrk.q = []; }
+      var li = document.createElement('script'); li.async = true; li.src = 'https://snap.licdn.com/li.lms-analytics/insight.min.js'; document.head.appendChild(li);
     }
     document.dispatchEvent(new Event('jcf:medicion'));
   };
@@ -63,19 +69,19 @@ window.JCF_MEDICION = {
     css.textContent = '.ck{position:fixed;left:16px;right:16px;bottom:16px;z-index:60;max-width:560px;margin:0 auto;background:#141d38;color:#fff;border-radius:16px;padding:18px 20px;box-shadow:0 18px 40px rgba(0,0,0,.25);font:15px/1.45 "Hanken Grotesk",Arial,sans-serif;display:grid;gap:12px}.ck p{margin:0;color:rgba(255,255,255,.88)}.ck a{color:#a9d4f2}.ck .b{display:flex;gap:8px;flex-wrap:wrap}.ck button{font:600 14px/1 inherit;font-family:inherit;border:0;border-radius:999px;padding:11px 18px;cursor:pointer}.ck .y{background:#fff;color:#141d38}.ck .n{background:transparent;color:#fff;border:1px solid rgba(255,255,255,.4)}';
     document.head.appendChild(css);
     var d = document.createElement('div'); d.className = 'ck'; d.setAttribute('role', 'dialog'); d.setAttribute('aria-label', 'Aviso de cookies');
-    d.innerHTML = '<p>Uso cookies de medición (Google y Meta) para saber qué contenidos sirven y mejorar los anuncios. <a href="privacidad.html">Política de privacidad</a>.</p><div class="b"><button type="button" class="y">Aceptar</button><button type="button" class="n">Solo necesarias</button></div>';
+    d.innerHTML = '<p>Uso cookies de medición (Google, Meta y LinkedIn) para saber qué contenidos sirven y mejorar los anuncios. <a href="privacidad.html">Política de privacidad</a>.</p><div class="b"><button type="button" class="y">Aceptar</button><button type="button" class="n">Solo necesarias</button></div>';
     document.body.appendChild(d);
     d.querySelector('.y').addEventListener('click', function () { store(KEY, 'si'); d.remove(); load(); });
     d.querySelector('.n').addEventListener('click', function () { store(KEY, 'no'); d.remove(); });
   };
 
   var start = function () {
-    if (!(C.ga4 || C.metaPixel || C.googleAds)) return;
+    if (!(C.ga4 || C.metaPixel || C.googleAds || C.linkedin)) return;
     var v = store(KEY);
     if (v === 'si') load(); else if (v !== 'no') banner();
   };
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', start); else start();
 
   /* Para reabrir el aviso desde la política de privacidad */
-  window.jcfCookies = function () { try { localStorage.removeItem(KEY); } catch (e) {} if (C.ga4 || C.metaPixel || C.googleAds) banner(); };
+  window.jcfCookies = function () { try { localStorage.removeItem(KEY); } catch (e) {} if (C.ga4 || C.metaPixel || C.googleAds || C.linkedin) banner(); };
 })();
