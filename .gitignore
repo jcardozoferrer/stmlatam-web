@@ -1,0 +1,6 @@
+*.bak*
+index.v*.html
+videos/nubbi.mp4
+campo/stm-sesion-remota.jpg
+campo/r-*
+.DS_Store

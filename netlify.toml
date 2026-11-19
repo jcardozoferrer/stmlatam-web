@@ -1,0 +1,102 @@
+[build]
+  publish = "."
+
+# Páginas viejas del sitio de Wix → sección equivalente
+[[redirects]]
+  from = "/sobre*"
+  to = "/#nosotros"
+  status = 301
+[[redirects]]
+  from = "/about*"
+  to = "/#nosotros"
+  status = 301
+[[redirects]]
+  from = "/nosotros*"
+  to = "/#nosotros"
+  status = 301
+[[redirects]]
+  from = "/equipo*"
+  to = "/#nosotros"
+  status = 301
+[[redirects]]
+  from = "/quienes-somos*"
+  to = "/#nosotros"
+  status = 301
+[[redirects]]
+  from = "/servicios*"
+  to = "/#servicios"
+  status = 301
+[[redirects]]
+  from = "/services*"
+  to = "/#servicios"
+  status = 301
+[[redirects]]
+  from = "/trade-marketing*"
+  to = "/#servicios"
+  status = 301
+[[redirects]]
+  from = "/consultoria*"
+  to = "/#servicios"
+  status = 301
+[[redirects]]
+  from = "/casos*"
+  to = "/#casos"
+  status = 301
+[[redirects]]
+  from = "/clientes*"
+  to = "/#casos"
+  status = 301
+[[redirects]]
+  from = "/proyectos*"
+  to = "/#casos"
+  status = 301
+[[redirects]]
+  from = "/contacto*"
+  to = "/#contacto"
+  status = 301
+[[redirects]]
+  from = "/contact*"
+  to = "/#contacto"
+  status = 301
+[[redirects]]
+  from = "/nubbi*"
+  to = "/#tecnologia"
+  status = 301
+[[redirects]]
+  from = "/eco*"
+  to = "/#tecnologia"
+  status = 301
+[[redirects]]
+  from = "/tecnologia*"
+  to = "/#tecnologia"
+  status = 301
+[[redirects]]
+  from = "/blog*"
+  to = "https://juliocardozoferrer.com/blog/"
+  status = 301
+[[redirects]]
+  from = "/post/*"
+  to = "https://juliocardozoferrer.com/blog/"
+  status = 301
+[[redirects]]
+  from = "/home*"
+  to = "/"
+  status = 301
+[[redirects]]
+  from = "/inicio*"
+  to = "/"
+  status = 301
+[[redirects]]
+  from = "/blank*"
+  to = "/"
+  status = 301
+
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+[[headers]]
+  for = "/campo/*"
+  [headers.values]
+    Cache-Control = "public, max-age=2592000"
