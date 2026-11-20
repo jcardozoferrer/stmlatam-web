@@ -119,7 +119,7 @@
     var ok = calificado(), m = $('motivo');
     m.required = !ok;
     $('motivoLbl').textContent = ok ? '¿Algo más que quieras contarnos? (opcional)' : 'Contanos el motivo de tu consulta (obligatorio)';
-    $('cqSend').textContent = ok ? 'Enviar y elegir horario' : 'Enviar consulta';
+    $('cqSend').textContent = ok ? 'Agendar reunión de workshop' : 'Enviar consulta';
   }
   f.addEventListener('change', update);
   f.addEventListener('input', function (e) { if (e.target.name === 'mensaje') $('cqErr').hidden = true; });
