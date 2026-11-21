@@ -1221,8 +1221,7 @@ document.documentElement.classList.add('js');
   /* YouTube */
   var YT = window.STM_YOUTUBE || ''; document.querySelectorAll('[data-yt]').forEach(function (a) { if (YT) { a.href = YT; a.target = '_blank'; a.rel = 'noopener'; a.title = 'YouTube STM LATAM'; var sm = a.querySelector('small'); if (sm) sm.textContent = 'STM'; } else { a.addEventListener('click', function (e) { e.preventDefault(); }); } });
   /* Agenda */
-  var BOOK = window.STM_AGENDA || '';
-  if (BOOK) document.querySelectorAll('[data-book]').forEach(function (a) { a.href = BOOK; a.target = '_blank'; a.rel = 'noopener'; a.addEventListener('click', function () { if (window.gtag) gtag('event', 'schedule_click'); }); });
+  document.querySelectorAll('[data-book]').forEach(function (a) { a.href = '#contacto'; a.removeAttribute('target'); a.addEventListener('click', function () { if (window.gtag) gtag('event', 'schedule_click'); }); });
 
   /* Contadores */
   var count = function (el) { var n = +el.dataset.n, t0 = null; var f = function (t) { if (!t0) t0 = t; var p = Math.min((t - t0) / 1400, 1); el.textContent = '+' + Math.round(n * (1 - Math.pow(1 - p, 3))).toLocaleString('es-AR'); if (p < 1) requestAnimationFrame(f); }; requestAnimationFrame(f); };
